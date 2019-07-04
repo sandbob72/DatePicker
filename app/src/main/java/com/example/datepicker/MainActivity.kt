@@ -18,14 +18,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        var c = Calendar.getInstance()
+        var singleYear = SimpleDateFormat("yyyy", Locale.getDefault())
+        var y = singleYear.format(c.time)
+        var nowYaer = y.toInt() + 543
 
         var singleBuilder = SingleDateAndTimePickerDialog.Builder(this)
         var singleDF = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault())
 
         var calendar = Calendar.getInstance()
-
-        calendar.set(Calendar.YEAR,2562)
-
+        calendar.set(Calendar.YEAR,nowYaer)
         var defaultDate = calendar.time
 
 
@@ -40,8 +42,6 @@ class MainActivity : AppCompatActivity() {
                 .bottomSheet()
                 .curved()
                 .mustBeOnFuture()
-//                .minDateRange(minDate)
-//                .maxDateRange(maxDate)
                 .defaultDate(defaultDate)
                 .displayMinutes(false)
                 .displayHours(false)
