@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,17 +18,31 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         var singleBuilder = SingleDateAndTimePickerDialog.Builder(this)
-        var simpleDF = SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
+        var singleDF = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault())
+
+        var calendar = Calendar.getInstance()
+
+        calendar.set(Calendar.YEAR,2562)
+
+        var defaultDate = calendar.time
+
+
 
 
         singleLayout.setOnClickListener {
             singleBuilder
                 .title("กรุณาเลือกวันเกิด")
                 .titleTextColor(Color.BLACK)
+                .titleTextSize(15)
                 .mainColor(Color.BLACK)
                 .bottomSheet()
                 .curved()
+                .mustBeOnFuture()
+//                .minDateRange(minDate)
+//                .maxDateRange(maxDate)
+                .defaultDate(defaultDate)
                 .displayMinutes(false)
                 .displayHours(false)
                 .displayDays(false)
@@ -38,7 +53,7 @@ class MainActivity : AppCompatActivity() {
                     //retrieve the SingleDateAndTimePicker
                 })
                 .listener (SingleDateAndTimePickerDialog.Listener {
-                    singleText.setText(simpleDF.format(it))
+                    singleText.setText(singleDF.format(it))
                 })
                 .display()
 
