@@ -18,7 +18,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-import static com.github.florent37.singledateandtimepicker.widget.SingleDateAndTimeConstants.STEP_MINUTES_DEFAULT;
+import static com.github.florent37.singledateandtimepicker.widget.SingleDateAndTimeConstants.*;
 
 public class SingleDateAndTimePickerDialog extends BaseDialog {
 
@@ -142,6 +142,9 @@ public class SingleDateAndTimePickerDialog extends BaseDialog {
 
         picker.setStepMinutes(minutesStep);
 
+        picker.setYearBE(yearBE);
+
+
         if (dayFormatter != null) {
             picker.setDayFormatter(dayFormatter);
         }
@@ -191,6 +194,11 @@ public class SingleDateAndTimePickerDialog extends BaseDialog {
 
     public SingleDateAndTimePickerDialog setMinutesStep(int minutesStep) {
         this.minutesStep = minutesStep;
+        return this;
+    }
+
+    public SingleDateAndTimePickerDialog setYearBE(int yearBE) {
+        this.yearBE = yearBE;
         return this;
     }
 
@@ -345,6 +353,7 @@ public class SingleDateAndTimePickerDialog extends BaseDialog {
         private boolean curved;
         private boolean mustBeOnFuture;
         private int minutesStep = STEP_MINUTES_DEFAULT;
+        private int yearBE;
 
         private boolean displayDays = true;
         private boolean displayMinutes = true;
@@ -423,6 +432,21 @@ public class SingleDateAndTimePickerDialog extends BaseDialog {
 
         public Builder minutesStep(int minutesStep) {
             this.minutesStep = minutesStep;
+            return this;
+        }
+
+        public Builder yearBE() {
+            this.yearBE = 543;
+            return this;
+        }
+
+        public Builder minYear(int minY) {
+            MIN_YEAR_DIFF = minY;
+            return this;
+        }
+
+        public Builder maxYear(int maxY) {
+            MAX_YEAR_DIFF = maxY;
             return this;
         }
 
@@ -525,6 +549,7 @@ public class SingleDateAndTimePickerDialog extends BaseDialog {
                     .setListener(listener)
                     .setCurved(curved)
                     .setMinutesStep(minutesStep)
+                    .setYearBE(yearBE)
                     .setMaxDateRange(maxDate)
                     .setMinDateRange(minDate)
                     .setDefaultDate(defaultDate)

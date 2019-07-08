@@ -12,6 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import static com.github.florent37.singledateandtimepicker.widget.SingleDateAndTimeConstants.MIN_YEAR_DIFF;
 import static com.github.florent37.singledateandtimepicker.widget.SingleDateAndTimeConstants.STEP_MINUTES_DEFAULT;
 
 /**
@@ -40,6 +41,7 @@ public abstract class BaseDialog {
     protected boolean curved = false;
     protected boolean mustBeOnFuture = false;
     protected int minutesStep = STEP_MINUTES_DEFAULT;
+    protected int yearBE;
 
     @Nullable
     protected Date minDate;

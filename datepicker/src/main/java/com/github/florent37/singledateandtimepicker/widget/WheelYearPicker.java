@@ -18,6 +18,8 @@ public class WheelYearPicker extends WheelPicker<String> {
     protected int minYear;
     protected int maxYear;
 
+    private int getYearBE;
+
     private OnYearSelectedListener onYearSelectedListener;
 
     public WheelYearPicker(Context context) {
@@ -31,7 +33,6 @@ public class WheelYearPicker extends WheelPicker<String> {
     @Override
     protected void init() {
         simpleDateFormat = new SimpleDateFormat("yyyy", getCurrentLocale());
-
         Calendar instance = Calendar.getInstance();
         int currentYear = instance.get(Calendar.YEAR);
         this.minYear = currentYear - SingleDateAndTimeConstants.MIN_YEAR_DIFF;
@@ -66,12 +67,17 @@ public class WheelYearPicker extends WheelPicker<String> {
         notifyDatasetChanged();
     }
 
+    public void setYearBE(int yearBE){
+        this.getYearBE = yearBE;
+        updateAdapter();
+    }
+
     @Override
     protected List<String> generateAdapterValues() {
         final List<String> years = new ArrayList<>();
 
         final Calendar instance = Calendar.getInstance();
-        instance.set(Calendar.YEAR, minYear-1);
+        instance.set(Calendar.YEAR, minYear + getYearBE -1);
 
         for (int i = minYear; i <= maxYear; i++) {
             instance.add(Calendar.YEAR, 1);

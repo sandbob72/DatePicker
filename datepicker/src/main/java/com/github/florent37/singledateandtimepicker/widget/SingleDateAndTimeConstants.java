@@ -12,6 +12,7 @@ public class SingleDateAndTimeConstants {
     public static final int MAX_MINUTES = 59;
     public static final int STEP_MINUTES_DEFAULT = 5;
 
-    public static final int MIN_YEAR_DIFF = 100;
-    public static final int MAX_YEAR_DIFF = 643;
+    public static int MIN_YEAR_DIFF = 100;
+    public static int MAX_YEAR_DIFF = 100;
+
 }

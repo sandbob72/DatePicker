@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.DatePicker
 import android.widget.Toast
 import com.github.florent37.singledateandtimepicker.dialog.SingleDateAndTimePickerDialog
+import com.github.florent37.singledateandtimepicker.widget.SingleDateAndTimeConstants.MIN_YEAR_DIFF
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.DateFormat
 import java.text.SimpleDateFormat
@@ -32,7 +33,6 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
         singleLayout.setOnClickListener {
             singleBuilder
                 .title("กรุณาเลือกวันเกิด")
@@ -41,9 +41,10 @@ class MainActivity : AppCompatActivity() {
                 .mainColor(Color.BLACK)
                 .bottomSheet()
                 .curved()
-                .mustBeOnFuture()
-                .defaultDate(defaultDate)
-                .displayMinutes(false)
+                //.yearBE()
+                //.defaultDate(defaultDate)
+                //.minYear(10)
+                //.maxYear(10)
                 .displayHours(false)
                 .displayDays(false)
                 .displayMonth(true)
