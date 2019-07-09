@@ -440,16 +440,6 @@ public class SingleDateAndTimePickerDialog extends BaseDialog {
             return this;
         }
 
-        public Builder minYear(int minY) {
-            MIN_YEAR_DIFF = minY;
-            return this;
-        }
-
-        public Builder maxYear(int maxY) {
-            MAX_YEAR_DIFF = maxY;
-            return this;
-        }
-
         public Builder displayDays(boolean displayDays) {
             this.displayDays = displayDays;
             return this;

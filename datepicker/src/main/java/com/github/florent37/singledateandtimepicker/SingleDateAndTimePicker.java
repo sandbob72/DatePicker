@@ -8,7 +8,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -31,7 +30,6 @@ import java.util.List;
 import java.util.Locale;
 
 import static com.github.florent37.singledateandtimepicker.DateHelper.getCalendarOfDate;
-import static com.github.florent37.singledateandtimepicker.widget.SingleDateAndTimeConstants.MIN_YEAR_DIFF;
 
 
 public class SingleDateAndTimePicker extends LinearLayout {
@@ -87,6 +85,8 @@ public class SingleDateAndTimePicker extends LinearLayout {
     private boolean displayHours = true;
 
     private boolean isAmPm;
+
+    private int yearBE;
 
     public SingleDateAndTimePicker(Context context) {
         this(context, null);
@@ -443,7 +443,7 @@ public class SingleDateAndTimePicker extends LinearLayout {
             }
 
             if (displayYears) {
-                calendar.set(Calendar.YEAR, yearsPicker.getCurrentYear());
+                calendar.set(Calendar.YEAR, yearsPicker.getCurrentYear() + yearBE);
             }
 
             if (displayDaysOfMonth) {
@@ -467,6 +467,7 @@ public class SingleDateAndTimePicker extends LinearLayout {
     }
 
     public void setYearBE(int yearBE) {
+        this.yearBE = yearBE;
         yearsPicker.setYearBE(yearBE);
     }
 
