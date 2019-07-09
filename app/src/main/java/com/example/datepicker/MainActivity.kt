@@ -19,20 +19,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var c = Calendar.getInstance()
-        var singleYear = SimpleDateFormat("yyyy", Locale.getDefault())
-        var y = singleYear.format(c.time)
-        var nowYaer = y.toInt() + 543
-
         var singleBuilder = SingleDateAndTimePickerDialog.Builder(this)
         var singleDF = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault())
-
-        var calendar = Calendar.getInstance()
-        calendar.set(Calendar.YEAR,nowYaer)
-        var defaultDate = calendar.time
-
-
-
+        
         singleLayout.setOnClickListener {
             singleBuilder
                 .title("กรุณาเลือกวันเกิด")
