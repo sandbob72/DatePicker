@@ -15,4 +15,6 @@ public class SingleDateAndTimeConstants {
     public static final int MIN_YEAR_DIFF = 100;
     public static final int MAX_YEAR_DIFF = 100;
 
+    public static final int YEAR_BE = 543;
+
 }

@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                 .mainColor(Color.BLACK)
                 .bottomSheet()
                 .curved()
-                //.yearBE()
+                .yearBE()
                 .displayMinutes(false)
                 .displayHours(false)
                 .displayDays(false)

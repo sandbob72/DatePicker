@@ -436,7 +436,7 @@ public class SingleDateAndTimePickerDialog extends BaseDialog {
         }
 
         public Builder yearBE() {
-            this.yearBE = 543;
+            this.yearBE = YEAR_BE;
             return this;
         }
 
