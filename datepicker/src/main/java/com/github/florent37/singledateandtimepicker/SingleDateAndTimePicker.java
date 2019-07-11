@@ -471,6 +471,10 @@ public class SingleDateAndTimePicker extends LinearLayout {
         yearsPicker.setYearBE(yearBE);
     }
 
+    public void setYearFormat(String yearFormat) {
+        monthPicker.setYearFormat(yearFormat);
+    }
+
     public void setHoursStep(int hoursStep) {
         hoursPicker.setHoursStep(hoursStep);
     }

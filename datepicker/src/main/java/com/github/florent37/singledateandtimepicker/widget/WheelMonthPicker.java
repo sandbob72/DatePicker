@@ -15,6 +15,8 @@ public class WheelMonthPicker extends WheelPicker<String> {
 
     private int lastScrollPosition;
 
+    private String yearFormat;
+
     private MonthSelectedListener listener;
 
     private boolean displayMonthNumbers = false;
@@ -29,14 +31,14 @@ public class WheelMonthPicker extends WheelPicker<String> {
 
     @Override
     protected void init() {
-
+        yearFormat = "MMMM";
     }
 
     @Override
     protected List<String> generateAdapterValues() {
         final List<String> monthList = new ArrayList<>();
 
-        final SimpleDateFormat month_date = new SimpleDateFormat("MMM", getCurrentLocale());
+        final SimpleDateFormat month_date = new SimpleDateFormat(yearFormat, getCurrentLocale());
         final Calendar cal = Calendar.getInstance(getCurrentLocale());
         cal.set(Calendar.DAY_OF_MONTH, 1);
 
@@ -50,6 +52,11 @@ public class WheelMonthPicker extends WheelPicker<String> {
         }
 
         return monthList;
+    }
+
+    public void setYearFormat(String yearFormat) {
+        this.yearFormat = yearFormat;
+        updateAdapter();
     }
 
 

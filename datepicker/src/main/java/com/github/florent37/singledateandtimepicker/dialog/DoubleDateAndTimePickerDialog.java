@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Locale;
 
 import static com.github.florent37.singledateandtimepicker.widget.SingleDateAndTimeConstants.STEP_MINUTES_DEFAULT;
+import static com.github.florent37.singledateandtimepicker.widget.SingleDateAndTimeConstants.YEAR_BE;
 
 public class DoubleDateAndTimePickerDialog extends BaseDialog {
 
@@ -225,6 +226,9 @@ public class DoubleDateAndTimePickerDialog extends BaseDialog {
         pickerTab0.setStepMinutes(minutesStep);
         pickerTab1.setStepMinutes(minutesStep);
 
+        pickerTab0.setYearBE(yearBE);
+        pickerTab1.setYearBE(yearBE);
+
         if (mainColor != null) {
             pickerTab0.setSelectedTextColor(mainColor);
             pickerTab1.setSelectedTextColor(mainColor);
@@ -335,6 +339,11 @@ public class DoubleDateAndTimePickerDialog extends BaseDialog {
 
     public DoubleDateAndTimePickerDialog setMinutesStep(int minutesStep) {
         this.minutesStep = minutesStep;
+        return this;
+    }
+
+    public DoubleDateAndTimePickerDialog setYearBE(int yearBE) {
+        this.yearBE = yearBE;
         return this;
     }
 
@@ -493,6 +502,7 @@ public class DoubleDateAndTimePickerDialog extends BaseDialog {
         private boolean secondDateAfterFirst;
         private boolean mustBeOnFuture;
         private int minutesStep = STEP_MINUTES_DEFAULT;
+        private int yearBE;
 
         private SimpleDateFormat dayFormatter;
 
@@ -579,6 +589,11 @@ public class DoubleDateAndTimePickerDialog extends BaseDialog {
 
         public DoubleDateAndTimePickerDialog.Builder minutesStep(int minutesStep) {
             this.minutesStep = minutesStep;
+            return this;
+        }
+
+        public DoubleDateAndTimePickerDialog.Builder yearBE() {
+            this.yearBE = YEAR_BE;
             return this;
         }
 
@@ -690,6 +705,7 @@ public class DoubleDateAndTimePickerDialog extends BaseDialog {
                     .setTab0Text(tab0Text)
                     .setTab1Text(tab1Text)
                     .setMinutesStep(minutesStep)
+                    .setYearBE(yearBE)
                     .setMaxDateRange(maxDate)
                     .setMinDateRange(minDate)
                     .setDefaultDate(defaultDate)

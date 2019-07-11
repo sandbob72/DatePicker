@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.DatePicker
 import android.widget.Toast
+import com.github.florent37.singledateandtimepicker.dialog.DoubleDateAndTimePickerDialog
 import com.github.florent37.singledateandtimepicker.dialog.SingleDateAndTimePickerDialog
 import com.github.florent37.singledateandtimepicker.widget.SingleDateAndTimeConstants.MIN_YEAR_DIFF
 import kotlinx.android.synthetic.main.activity_main.*
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         var singleBuilder = SingleDateAndTimePickerDialog.Builder(this)
         var singleDF = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault())
-        
+
         singleLayout.setOnClickListener {
             singleBuilder
                 .title("กรุณาเลือกวันเกิด")
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() {
                 .bottomSheet()
                 .curved()
                 .yearBE()
+                .yearFormat("MMM")
                 .displayMinutes(false)
                 .displayHours(false)
                 .displayDays(false)

@@ -144,6 +144,8 @@ public class SingleDateAndTimePickerDialog extends BaseDialog {
 
         picker.setYearBE(yearBE);
 
+        picker.setYearFormat(yearFormat);
+
 
         if (dayFormatter != null) {
             picker.setDayFormatter(dayFormatter);
@@ -199,6 +201,11 @@ public class SingleDateAndTimePickerDialog extends BaseDialog {
 
     public SingleDateAndTimePickerDialog setYearBE(int yearBE) {
         this.yearBE = yearBE;
+        return this;
+    }
+
+    public SingleDateAndTimePickerDialog setYearFormat(String yearFormat) {
+        this.yearFormat = yearFormat;
         return this;
     }
 
@@ -354,6 +361,7 @@ public class SingleDateAndTimePickerDialog extends BaseDialog {
         private boolean mustBeOnFuture;
         private int minutesStep = STEP_MINUTES_DEFAULT;
         private int yearBE;
+        private String yearFormat;
 
         private boolean displayDays = true;
         private boolean displayMinutes = true;
@@ -437,6 +445,11 @@ public class SingleDateAndTimePickerDialog extends BaseDialog {
 
         public Builder yearBE() {
             this.yearBE = YEAR_BE;
+            return this;
+        }
+
+        public Builder yearFormat(String yearFormat) {
+            this.yearFormat = yearFormat;
             return this;
         }
 
@@ -540,6 +553,7 @@ public class SingleDateAndTimePickerDialog extends BaseDialog {
                     .setCurved(curved)
                     .setMinutesStep(minutesStep)
                     .setYearBE(yearBE)
+                    .setYearFormat(yearFormat)
                     .setMaxDateRange(maxDate)
                     .setMinDateRange(minDate)
                     .setDefaultDate(defaultDate)

@@ -42,6 +42,7 @@ public abstract class BaseDialog {
     protected boolean mustBeOnFuture = false;
     protected int minutesStep = STEP_MINUTES_DEFAULT;
     protected int yearBE;
+    protected String yearFormat;
 
     @Nullable
     protected Date minDate;
